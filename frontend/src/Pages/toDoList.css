@@ -1,0 +1,26 @@
+.nav {
+  background-color: #fea735;
+}
+
+.btn-white,
+.btn-white:focus {
+  background: #fea735;
+  color: #ffffff;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.btn-white:hover,
+.btn-white:focus:hover {
+  background-color: #fcf5ef;
+  border: 2px solid #fea735;
+  color: #fea735;
+}
