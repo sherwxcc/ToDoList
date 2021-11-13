@@ -7,28 +7,29 @@ class TodoRouter {
 
   router() {
     let router = express.Router();
-    router.get("/todo", this.getTask.bind(this));
-    router.post("/todo", this.postTask.bind(this));
-    router.put("/todo/:index", this.putTask.bind(this));
-    router.delete("/todo/:index", this.deleteTask.bind(this));
+    router.get("/uid/:uid", this.getTask.bind(this));
+    router.post("/", this.postTask.bind(this));
+    router.put("/:index", this.putTask.bind(this));
+    router.delete("/:index", this.deleteTask.bind(this));
     return router;
   }
 
   getTask(req, res) {
     this.todoService
-      .listTask(req.auth.user)
+      .listTask(req.params.uid)
       .then((tasksData) => {
         res.json(tasksData);
       })
       .catch((err) => {
+        console.log(err);
         res.status(500).json(err);
       });
   }
 
   postTask(req, res) {
-    this.todoService.addTask(req.body.note, req.auth.user).then(() => {
+    this.todoService.addTask(req.body.task, req.body.userId).then(() => {
       this.todoService
-        .listTask(req.auth.user)
+        .listTask(req.body.userId)
         .then((tasksData) => {
           res.json(tasksData);
         })

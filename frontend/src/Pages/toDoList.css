@@ -2,10 +2,112 @@
   background-color: #fea735;
 }
 
+.heading {
+  color: #ffffff;
+  font-family: "Sora", sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+
 .btn-white,
 .btn-white:focus {
-  background: #fea735;
-  color: #ffffff;
+  background: #ffffff;
+  color: #fea735;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.btn-white:hover,
+.btn-white:focus:hover {
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  color: #0077ff;
+}
+
+.welcome-msg {
+  font-size: 17px;
+}
+
+.main {
+  background-color: #fcf5ef;
+}
+
+.search-task {
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.search-task:focus {
+  box-shadow: none;
+  border: 2px solid #0077ff;
+  background-color: #ffffff;
+}
+
+.list-card {
+  max-width: 800px;
+}
+
+.add-task-card,
+.old-task-card {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 20px;
+}
+
+.add-task-title {
+  color: #0077ff;
+  font-family: "Sora", sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.add-task-ta,
+.old-task-ta {
+  border: none;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.add-task-ta:focus,
+.old-task-ta:focus {
+  box-shadow: none;
+  background-color: #ffffff;
+  border: 2px solid #0077ff;
+}
+
+.add-task-footer {
+  background-color: #0077ff;
+  border: none;
+}
+
+.old-task-card-footer {
+  background-color: #fe7235;
+  border: none;
+}
+
+.add-task-footer:last-child,
+.old-task-card-footer:last-child {
+  border-radius: 0 0 20px 20px;
+}
+
+.btn-blue,
+.btn-blue:focus {
+  background: #ffffff;
+  color: #0077ff;
   font-family: "Nunito", sans-serif;
   font-size: 15px;
   font-weight: 900;
@@ -16,11 +118,13 @@
   box-shadow: none;
   padding-left: 35px;
   padding-right: 35px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
-.btn-white:hover,
-.btn-white:focus:hover {
-  background-color: #fcf5ef;
-  border: 2px solid #fea735;
+.btn-blue:hover,
+.btn-blue:focus:hover {
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
   color: #fea735;
 }

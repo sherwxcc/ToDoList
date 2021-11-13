@@ -5,6 +5,8 @@ import {
   // CLOSE_MODAL,
 } from "./actions";
 
+import { CLEAR_ERR_MSG } from "../login/actions";
+
 const initialState = {
   isLoading: false,
   successMsg: null,
@@ -28,6 +30,12 @@ export function signupReducer(state = initialState, action) {
       return {
         ...state,
         errorMsg: action.message,
+      };
+
+    case CLEAR_ERR_MSG:
+      return {
+        ...state,
+        errorMsg: null,
       };
 
     // case CLOSE_MODAL:

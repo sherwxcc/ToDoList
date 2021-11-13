@@ -22,7 +22,6 @@ const LoginForm = () => {
 
   const login = () => {
     if (username !== "" && password !== "") {
-      console.log("Dispatching loginUserThunk");
       dispatch(loginUserThunk(username, password));
     }
   };
@@ -39,7 +38,7 @@ const LoginForm = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.currentTarget.value)}
-              className="input-text form-control bc-fcf5ef border-0"
+              className="input-text form-control bc-fcf5ef"
               required
             />
             <label className="my-2">Password</label>
@@ -48,7 +47,7 @@ const LoginForm = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
-              className="input-text form-control bc-fcf5ef border-0"
+              className="input-text form-control bc-fcf5ef "
               required
             />
             <br />

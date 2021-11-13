@@ -36,7 +36,7 @@ const SignupForm = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.currentTarget.value)}
-              className="input-text form-control bc-fcf5ef border-0"
+              className="input-text form-control"
               required
             />
             <label className="my-2">Username</label>
@@ -45,7 +45,7 @@ const SignupForm = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.currentTarget.value)}
-              className="input-text form-control bc-fcf5ef border-0"
+              className="input-text form-control"
               required
             />
             <label className="my-2">Password</label>
@@ -54,7 +54,7 @@ const SignupForm = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
-              className="input-text form-control bc-fcf5ef border-0"
+              className="input-text form-control"
               required
             />
             <br />

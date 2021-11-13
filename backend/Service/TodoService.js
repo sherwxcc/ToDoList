@@ -3,45 +3,31 @@ class TodoService {
     this.knex = knex;
   }
 
-  async getUserID(user) {
+  async listTask(userId) {
     try {
-      let userQuery = await this.knex
-        .select("id")
-        .from("users")
-        .where("username", user);
-      return userQuery[0].id;
-    } catch (err) {
-      throw new Error("User does not exist");
-    }
-  }
-
-  async listTask(user) {
-    try {
-      let userID = await this.getUserID(user);
-      let todoQuery = await this.knex
+      let taskQuery = await this.knex
         .select("id", "task")
         .from("todolist")
-        .where("user_id", userID)
+        .where("user_id", userId)
         .orderBy("id", "asc");
       let todoData = {};
       let todoArr = [];
-      todoQuery.forEach((item) => {
+      taskQuery.forEach((item) => {
         todoArr.push({
           id: item.id,
           task: item.task,
         });
       });
-      todoData[user] = todoArr;
-      return todoData[user];
+      todoData[userId] = todoArr;
+      return todoData[userId];
     } catch (err) {
       throw new Error("User does not exist, cannot list!");
     }
   }
 
-  async addTask(task, user) {
+  async addTask(task, userId) {
     try {
-      let userID = await this.getUserID(user);
-      return this.knex.insert({ task: task, user_id: userID }).into("todolist");
+      return this.knex.insert({ task: task, user_id: userId }).into("todolist");
     } catch (err) {
       throw new Error("User does not exist, cannot add!");
     }

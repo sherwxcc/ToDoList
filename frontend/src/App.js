@@ -9,9 +9,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={LandingPage} />
-      <PrivateRoute exact path="/todolist">
-        <ToDoList />
-      </PrivateRoute>
+      <PrivateRoute exact path="/todolist" component={ToDoList} />
       <Route
         component={() => {
           return (
