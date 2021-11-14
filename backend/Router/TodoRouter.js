@@ -7,10 +7,10 @@ class TodoRouter {
 
   router() {
     let router = express.Router();
-    router.get("/uid/:uid", this.getTask.bind(this));
+    router.get("/:uid", this.getTask.bind(this));
     router.post("/", this.postTask.bind(this));
-    router.put("/:index", this.putTask.bind(this));
-    router.delete("/:index", this.deleteTask.bind(this));
+    router.put("/:taskid", this.putTask.bind(this));
+    router.delete("/:uid/:taskid", this.deleteTask.bind(this));
     return router;
   }
 
@@ -21,7 +21,6 @@ class TodoRouter {
         res.json(tasksData);
       })
       .catch((err) => {
-        console.log(err);
         res.status(500).json(err);
       });
   }
@@ -41,10 +40,10 @@ class TodoRouter {
 
   putTask(req, res) {
     this.todoService
-      .editTask(req.body.note, req.params.index, req.auth.user)
+      .editTask(req.body.task, req.params.taskid, req.body.userId)
       .then(() => {
         this.todoService
-          .listTask(req.auth.user)
+          .listTask(req.body.userId)
           .then((tasksData) => {
             res.json(tasksData);
           })
@@ -55,9 +54,9 @@ class TodoRouter {
   }
 
   deleteTask(req, res) {
-    this.todoService.deleteNote(req.params.index, req.auth.user).then(() => {
+    this.todoService.deleteTask(req.params.taskid, req.params.uid).then(() => {
       this.todoService
-        .listTask(req.auth.user)
+        .listTask(req.params.uid)
         .then((tasksData) => {
           res.json(tasksData);
         })

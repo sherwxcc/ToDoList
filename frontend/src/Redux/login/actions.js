@@ -5,6 +5,7 @@ export const LOGIN_SUCCESS_ACTION = "LOGIN_SUCCESS_ACTION";
 export const LOGIN_FAILURE_ACTION = "LOGIN_FAILURE_ACTION";
 export const LOGOUT_ACTION = "LOGOUT_ACTION";
 export const CLEAR_ERR_MSG = "CLEAR_ERR_MSG";
+export const CLEAR_TASK_LIST = "CLEAR_TASK_LIST";
 
 export const loginUserThunk = (username, password) => async (dispatch) => {
   try {
@@ -15,7 +16,7 @@ export const loginUserThunk = (username, password) => async (dispatch) => {
       {
         username: username,
         password: password,
-      }
+      },
     );
     const { data } = response;
 
@@ -40,4 +41,5 @@ export const loginUserThunk = (username, password) => async (dispatch) => {
 export const logoutUser = () => (dispatch) => {
   localStorage.clear("token");
   dispatch({ type: LOGOUT_ACTION });
+  dispatch({ type: CLEAR_TASK_LIST });
 };

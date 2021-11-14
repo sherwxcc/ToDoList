@@ -29,8 +29,7 @@ const toDoService = new ToDoService(knex);
 const toDoRouter = new ToDoRouter(toDoService);
 
 app.use("/", authRouter.router());
-// app.use("/todo", auth.authenticate(), toDoRouter.router());
-app.use("/todo", toDoRouter.router());
+app.use("/todo", auth.authenticate(), toDoRouter.router());
 
 // Set up port
 const port = 8080;

@@ -9,7 +9,7 @@ class TodoService {
         .select("id", "task")
         .from("todolist")
         .where("user_id", userId)
-        .orderBy("id", "asc");
+        .orderBy("id", "desc");
       let todoData = {};
       let todoArr = [];
       taskQuery.forEach((item) => {
@@ -33,24 +33,22 @@ class TodoService {
     }
   }
 
-  async editTask(task, index, user) {
+  async editTask(task, taskId, userId) {
     try {
-      let userID = await this.getUserID(user);
       return this.knex("todolist")
-        .where("user_id", userID)
-        .andWhere("id", index)
+        .where("user_id", userId)
+        .andWhere("id", taskId)
         .update({ task: task });
     } catch (err) {
       throw new Error("User does not exist, cannot edit!");
     }
   }
 
-  async deleteTask(index, user) {
+  async deleteTask(taskId, userId) {
     try {
-      let userID = await this.getUserID(user);
       return this.knex("todolist")
-        .where("user_id", userID)
-        .andWhere("id", index)
+        .where("user_id", userId)
+        .andWhere("id", taskId)
         .del();
     } catch (err) {
       throw new Error("User does not exist, cannot delete!");
