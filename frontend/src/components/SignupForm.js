@@ -1,28 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { signupUserThunk, closeModal } from "../Redux/signup/actions";
+import { signupUserThunk } from "../Redux/signup/actions";
 import { Button } from "reactstrap";
-// import SuccessModal from "./SuccessModal";
+import SuccessModal from "./SuccessModal";
 
 const SignupForm = () => {
   const signupStore = useSelector((state) => state.signupStore);
-  const { isLoading, successMsg, errorMsg, modalOpen } = signupStore;
+  const { isLoading, successMsg, errorMsg } = signupStore;
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [modalBoolean, setModalBoolean] = useState(false);
+
+  useEffect(() => {
+    if (successMsg !== null) {
+      setModalBoolean(true);
+      setUsername("");
+      setPassword("");
+      setName("");
+    }
+  }, [successMsg, setModalBoolean]);
 
   const signup = () => {
-    dispatch(signupUserThunk(username, password, name));
+    if (username !== "" && password !== "" && name !== "") {
+      dispatch(signupUserThunk(username, password, name));
+    }
   };
 
-  // const close = () => {
-  //   dispatch(closeModal());
-  // };
+  const closeModal = () => {
+    setModalBoolean(false);
+  };
 
   return (
     <>
@@ -67,7 +77,11 @@ const SignupForm = () => {
           </form>
         </div>
       </div>
-      {/* <SuccessModal modalOpen={modalOpen} close={close} message={successMsg} /> */}
+      <SuccessModal
+        isOpen={modalBoolean}
+        close={closeModal}
+        message={successMsg}
+      />
     </>
   );
 };

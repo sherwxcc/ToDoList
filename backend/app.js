@@ -5,6 +5,8 @@ const app = express();
 // Setup middlewares
 const cors = require("cors");
 app.use(cors());
+const morgan = require("morgan");
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

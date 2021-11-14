@@ -3,7 +3,6 @@ import axios from "axios";
 export const SIGNUP_REQUEST_ACTION = "SIGNUP_REQUEST_ACTION";
 export const SIGNUP_SUCCESS_ACTION = "SIGNUP_SUCCESS_ACTION";
 export const SIGNUP_FAILURE_ACTION = "SIGNUP_FAILURE_ACTION";
-// export const CLOSE_MODAL = "CLOSE_MODAL";
 
 export const signupUserThunk =
   (username, password, name) => async (dispatch) => {
@@ -30,9 +29,3 @@ export const signupUserThunk =
       console.log("Error: ", err);
     }
   };
-
-// export const closeModal = () => {
-//   return {
-//     type: CLOSE_MODAL,
-//   };
-// };

@@ -2,7 +2,6 @@ import {
   SIGNUP_REQUEST_ACTION,
   SIGNUP_SUCCESS_ACTION,
   SIGNUP_FAILURE_ACTION,
-  // CLOSE_MODAL,
 } from "./actions";
 
 import { CLEAR_ERR_MSG } from "../login/actions";
@@ -11,7 +10,6 @@ const initialState = {
   isLoading: false,
   successMsg: null,
   errorMsg: null,
-  // modalOpen: false,
 };
 
 export function signupReducer(state = initialState, action) {
@@ -22,8 +20,7 @@ export function signupReducer(state = initialState, action) {
     case SIGNUP_SUCCESS_ACTION:
       return {
         ...state,
-        successMsg: "Yay! Your account has been successfully created!",
-        modalOpen: true,
+        successMsg: "Yay! Your account is successfully created!",
       };
 
     case SIGNUP_FAILURE_ACTION:
@@ -37,12 +34,6 @@ export function signupReducer(state = initialState, action) {
         ...state,
         errorMsg: null,
       };
-
-    // case CLOSE_MODAL:
-    //   return {
-    //     ...state,
-    //     modalOpen: false,
-    //   };
 
     default:
       return state;

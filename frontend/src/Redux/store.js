@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import logger from "redux-logger";
 
 import { loginReducer } from "./login/reducer";
 import { signupReducer } from "./signup/reducer";
@@ -15,5 +16,5 @@ const rootReducer = combineReducers({
 
 export const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk, logger))
 );

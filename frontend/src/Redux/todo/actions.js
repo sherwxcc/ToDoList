@@ -1,8 +1,7 @@
 import axios from "axios";
-import { InvalidTokenError } from "jwt-decode";
 
 export const LIST_TASK_ACTION = "LIST_TASK_ACTION";
-export const UPDATE_TASKLIST_SUCCESS_ACTION = "UPDATE_TASKLIST_SUCCESS_ACTION";
+export const SEARCH_TASK_ACTION = "SEARCH_TASK_ACTION";
 
 export const listTaskThunk = (userId) => async (dispatch) => {
   try {
@@ -105,4 +104,11 @@ export const updateTaskThunk = (userId, taskId, task) => async (dispatch) => {
   } catch (err) {
     console.log("Error: ", err);
   }
+};
+
+export const searchTask = (search) => {
+  return {
+    type: SEARCH_TASK_ACTION,
+    payload: search,
+  };
 };

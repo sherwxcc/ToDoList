@@ -1,20 +1,20 @@
-import { Button, Modal, ModalBody } from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 const SuccessModal = (props) => {
   return (
     <div>
-      {props.modalOpen ? (
-        <Modal className="modal-main">
-          <ModalBody>
-            <div>
-              <div>{props.message}</div>
-              <Button className="btn-orange" onClick={props.close}>
-                OK
-              </Button>
-            </div>
-          </ModalBody>
-        </Modal>
-      ) : null}
+      <Modal isOpen={props.isOpen} contentClassName="custom-modal-style">
+        <ModalBody>
+          <div className="success-msg py-5 text-center">{props.message}</div>
+        </ModalBody>
+        <ModalFooter className="modal-footer">
+          <div className="mx-auto">
+            <Button className="btn-white" onClick={props.close}>
+              OK
+            </Button>
+          </div>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 };
