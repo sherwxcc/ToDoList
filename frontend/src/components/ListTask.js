@@ -19,7 +19,7 @@ const ListTask = () => {
     let tokenId = jwt_decode(localStorage.getItem("token")).id;
     setUserId(tokenId);
     dispatch(listTaskThunk(tokenId));
-  }, []);
+  }, [dispatch]);
 
   const deleteTask = (taskId) => {
     dispatch(deleteTaskThunk(userId, taskId));

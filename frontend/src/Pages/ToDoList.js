@@ -25,7 +25,7 @@ const ToDoList = () => {
     }
     let tokenName = jwt_decode(localStorage.getItem("token")).name;
     setName(tokenName);
-  }, [isAuthenticated]);
+  }, [isAuthenticated, history]);
 
   useEffect(() => {
     if (search !== "") {

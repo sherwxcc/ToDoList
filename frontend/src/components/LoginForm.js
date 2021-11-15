@@ -6,7 +6,7 @@ import { Button } from "reactstrap";
 
 const LoginForm = () => {
   const loginStore = useSelector((state) => state.loginStore);
-  const { isLoading, isAuthenticated, errorMsg } = loginStore;
+  const { isAuthenticated, errorMsg } = loginStore;
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -18,7 +18,7 @@ const LoginForm = () => {
     if (isAuthenticated) {
       history.push("/todolist");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, history]);
 
   const login = () => {
     if (username !== "" && password !== "") {

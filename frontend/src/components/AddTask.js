@@ -27,6 +27,8 @@ const AddTask = () => {
   const addNewTask = () => {
     if (newTask !== "") {
       dispatch(addTaskThunk(userId, newTask));
+    } else {
+      return;
     }
   };
 

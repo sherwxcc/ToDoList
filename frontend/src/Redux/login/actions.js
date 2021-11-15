@@ -1,6 +1,5 @@
 import axios from "axios";
 
-export const LOGIN_REQUEST_ACTION = "LOGIN_REQUEST_ACTION";
 export const LOGIN_SUCCESS_ACTION = "LOGIN_SUCCESS_ACTION";
 export const LOGIN_FAILURE_ACTION = "LOGIN_FAILURE_ACTION";
 export const LOGOUT_ACTION = "LOGOUT_ACTION";
@@ -9,14 +8,12 @@ export const CLEAR_TASK_LIST = "CLEAR_TASK_LIST";
 
 export const loginUserThunk = (username, password) => async (dispatch) => {
   try {
-    dispatch({ type: LOGIN_REQUEST_ACTION });
-
     const response = await axios.post(
       `${process.env.REACT_APP_API_SERVER}/login`,
       {
         username: username,
         password: password,
-      },
+      }
     );
     const { data } = response;
 

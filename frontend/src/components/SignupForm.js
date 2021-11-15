@@ -6,7 +6,7 @@ import SuccessModal from "./SuccessModal";
 
 const SignupForm = () => {
   const signupStore = useSelector((state) => state.signupStore);
-  const { isLoading, successMsg, errorMsg } = signupStore;
+  const { successMsg, errorMsg } = signupStore;
 
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const SignupForm = () => {
       setPassword("");
       setName("");
     }
-  }, [successMsg, setModalBoolean]);
+  }, [successMsg]);
 
   const signup = () => {
     if (username !== "" && password !== "" && name !== "") {

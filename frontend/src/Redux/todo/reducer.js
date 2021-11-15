@@ -9,7 +9,6 @@ const initialState = {
 export function todoReducer(state = initialState, action) {
   switch (action.type) {
     case LIST_TASK_ACTION:
-      console.log("Updating List.. ", action.payload);
       return { ...state, todoList: action.payload };
 
     case CLEAR_TASK_LIST:
