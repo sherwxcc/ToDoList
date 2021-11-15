@@ -1,4 +1,3 @@
-import "./app.css";
 import { Route, Switch } from "react-router-dom";
 
 import PrivateRoute from "./components/PrivateRoute";
